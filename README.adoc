@@ -28,7 +28,7 @@ Diese Pflichtaufgabe wird sich mit Tests und insbesondere Mocking befassen.
 Wir schreiben das Jahr 2025, seit 5 Jahren leben wir mit dem Corona Virus. Ein Impfstoff konnte nie entwickelt werden und es wurde festgestellt, dass der Großteil der Menschen selbst nach der Erkrankung nur wenige Monate lang immun ist. Wohl oder übel musste sich die Welt mit dem Virus arrangieren. In den USA wurde am Ende der zweiten Amtszeit von Präsident Trump ein Schnelltestgerät  entwickelt, welches rasenden Absatz hatte. In Deutschland wurde unter Bundeskanzler Spahn das Gesetz zur Seuchenkontrolle beschlossen, das den Umgang zwischen Menschen regelt. Schnelltestgeräte sind praktisch an jeder Ecke aufgestellt. Die Schnelltestgeräte geben QR Codes aus, die den freien Zugang zu Geschäften, etc. ermöglichen, es gilt aber weiterhin die Einhaltung des Mindestabstands und die Maskenpflicht. Positiv getestete Menschen müssen sich umgehend in Quarantäne begeben. Zuwiderhandlungen werden mit hohen Bußgeldern oder sogar Gefängnis bestraft. Glücklicherweise halten sich die meisten Bürger an die Verordnungen und so hat das Leben eine Art Normalzustand erreicht. Es gibt sogar wieder Präsenzveranstaltungen an der Uni. 
 
 === Die Software
-An praktisch jedem Zugang zu einem Geschäft, öffentlichem Park, Restaurant, usw. sind Scanner aufgestellt, die den Zugang regeln. Es dürfen nur eine bestimmte Anzahl von Personen gleichzeitig in dem Bereich sein. Die Anzahl der Personen in einem Bereich hängt von den baulichen Bedingungen und der Nutzungsweise ab. Die Höchstpersonenzahl wird vom Amt für Seuchenschutz für jeden Bereich festgelegt. Es gibt immer eine Nutzungsreserve die freigehalten werden muss, damit zum Beispiel Angestellte, die in dem Bereich arbeiten noch den Bereich betreten dürfen. Die Nutzungsreserve wird von dem Betreiber des Bereich festgelegt. Ein Scanner an einem Zugang lässt "normale" Personen das Gebäude betreten, solange die Höchspersonenzahl minus der Nutzungsreserve nicht erreicht wurde. Angestellte können solange den Bereich betreten, bis die Höchstgrenze erreicht wurde. Sondernutzer (Polizei, Zoll, Feuerwehr, Rettungsdienst, THW) dürfen immer den Bereich betreten unabhängig davon, wieviele Personen im Bereich sind. Sondernutzer werden aber mitgezählt. Es werden ausschließlich Personen in den Bereich eingelassen, die einen negativen Schnelltest haben, der nicht älter ist als 5 Stunden ist. Versucht eine Person mit positivem Test den Bereich zu betreten, wird der Zugang blockiert und ein Alarm ausgelöst. 
+An praktisch jedem Zugang zu einem Geschäft, öffentlichem Park, Restaurant, usw. sind Scanner aufgestellt, die den Zugang regeln. Es dürfen nur eine bestimmte Anzahl von Personen gleichzeitig in dem Bereich sein. Die Anzahl der Personen in einem Bereich hängt von den baulichen Bedingungen und der Nutzungsweise ab. Die Höchstpersonenzahl wird vom Amt für Seuchenschutz für jeden Bereich festgelegt. Es gibt immer eine Nutzungsreserve die freigehalten werden muss, damit zum Beispiel Angestellte, die in dem Bereich arbeiten noch den Bereich betreten dürfen. Die Nutzungsreserve wird von dem Betreiber des Bereich festgelegt. Ein Scanner an einem Zugang lässt "normale" Personen das Gebäude betreten, solange die Höchspersonenzahl minus der Nutzungsreserve nicht erreicht wurde. Angestellte können solange den Bereich betreten, bis die Höchstgrenze erreicht wurde. Sondernutzer (Polizei, Zoll, Feuerwehr, Rettungsdienst, THW) dürfen immer den Bereich betreten unabhängig davon, wieviele Personen im Bereich sind. Sondernutzer werden aber mitgezählt. Es werden ausschließlich Personen in den Bereich eingelassen, die einen negativen Schnelltest haben, der nicht älter ist als 5 Stunden ist. Versucht eine Person mit positivem KontrollSotwareTest den Bereich zu betreten, wird der Zugang blockiert und ein Alarm ausgelöst.
 
 Die Scanner an den verschiedenen Zugängen kommunizieren über ein Netzwerk miteinander. Das Netzwerk wird nicht von Ihnen entwickelt, es stellt folgendes Interface bereit:
 
@@ -55,7 +55,7 @@ Ihre Software muss mit der Hardware an den Zugangspunkten kommunizieren. Auch hi
 ----
 public interface Scanner {
 
-    // true <=> eine Person ist am Zugangspunkt
+    // true <=> eine Person ist am Kontrollsoftware
     boolean readyToProcessPerson();
 
     // Nur aufrufen, wenn eine Person da ist
@@ -72,7 +72,7 @@ public interface Scanner {
     void scanCertificate();
 
     // Nur aufrufen, wenn das Zertifikat gescannt wurde
-    // true <=> letzter Test ist negativ
+    // true <=> letzter KontrollSotwareTest ist negativ
     boolean covidNegativeCertificate();
 
     // Nur aufrufen, wenn das Zertifikat gescannt wurde
@@ -95,7 +95,7 @@ public interface Scanner {
 }
 ----
 
-Ihre Aufgabe ist es die Kontrollsoftware für einen Zugangspunkt zu entwerfen. 
+Ihre Aufgabe ist es die Kontrollsoftware für einen Kontrollsoftware zu entwerfen.
 
 Beim Start bekommt das System die Höchstpersonenzahl, die Nutzungsreserve und die aktuelle Anzahl an Personen im Bereich übermittelt. Außerdem wird das System mit Zugang zum Netzwerk und dem Scanner versorgt. Diese Parameter werden alle dem Konstruktor übergeben. Sie dürfen weitere Parameter hinzufügen (vermutlich werden Sie das auch müssen).
 
@@ -111,7 +111,7 @@ NOTE: Wir ignorieren die Tatsache, dass in einem Netzwerk Latenzen oder Fehler a
 
 Das Lernziel der Aufgabe ist das Testing einer Anwendung, die aus mehreren Komponenten besteht. Sie sollen dabei Mockito anwenden. 
 
-Achten Sie bei Ihren Tests besonders darauf, dass jeder Test nur einen Sachverhalt testet.  
+Achten Sie bei Ihren Tests besonders darauf, dass jeder KontrollSotwareTest nur einen Sachverhalt testet.
 
 Bei der Implementierung ist uns wichtig, dass Sie den Code nicht zusammenhacken, sondern sich Mühe geben bei der Strukturierung und der Codequalität. Achten Sie auf konsistente Formatierung, sinnvolle Benennung, SLAP, etc. 
 
