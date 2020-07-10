@@ -26,6 +26,8 @@ public class KontrollsofwareNeu {
 		this.scanner = scanner;
 	}
 
+	//Hier wird die Anzahl der Personen berechnet, dabei wird Angestellter
+	// und Normal unterschieden, für Sonderrechte ist die Anzahl irrelevant
 	private int berechneFreiePlaetze(){
 		if (scanner.category() == PersonCategory.NORMAL){
 			return  hoehstpersonenanzahl - nutzungsreserve;
@@ -34,13 +36,13 @@ public class KontrollsofwareNeu {
 		}
 	}
 
-
-	public void checkePersonNormalUndAngestellt() {
+	//Angestellter und Normal sind sehr ähnlich, der einzige unterschied liegt in der Berechnung der Personenanzahl
+	private void checkePersonNormalUndAngestellt() {
 		if(aktuelleAnzahlAnPersonen <= berechneFreiePlaetze()) {
 			scanner.scanCertificate();
 			if(scanner.covidNegativeCertificate()){
 				if( (-1)*(ChronoUnit.HOURS.between(LocalDateTime.now(), scanner.certificateDate()))+1<=5){
-					personReinRaus(true);
+					personReinRaus(true); //Hier wird auf die jeweilige Anzahl berücksichtigt
 				}else {
 					scanner.temporaryDenyAccess();
 				}
@@ -55,6 +57,8 @@ public class KontrollsofwareNeu {
 
 	}
 
+	//Hier werden alle Drei Kategoriern gecheckt
+	//Zuvor werden Nachrichten gecheckt, da veränderungen an der Anzahl möglich sind.
 	public void checkePerson(){
 		bearbeiteNachrichten();
 
@@ -72,6 +76,7 @@ public class KontrollsofwareNeu {
 		}
 	}
 
+	//true person will rein, false die Person geht raus, Die anzahl wird aktualisiert
 	private void personReinRaus(boolean bool){
 		if(bool){
 			scanner.allowAccess();
@@ -91,6 +96,7 @@ public class KontrollsofwareNeu {
 		}
 	}
 
+	//getter für Tests
 	public int getAktuelleAnzahlAnPersonen() {
 		return aktuelleAnzahlAnPersonen;
 	}

@@ -8,7 +8,6 @@ public enum PersonCategory {
 	ANGESTELLT,
 	SONDERRECHTE;
 
-	//public Message
 
 	public static Message einerRein() {
 		return new Message("Einer geht rein!");

@@ -8,7 +8,7 @@ public class Message {
 		this.message = message;
 	}
 
-	public int aktualisierung() {
+	public int aktualisierung() { //Einer geht rein -> +1 wenn nicht muss er raus gehen -> -1
 		if(message.equals("Einer geht rein!"))
 			return 1;
 		return -1;

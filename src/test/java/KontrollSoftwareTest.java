@@ -13,7 +13,7 @@ import static org.mockito.Mockito.*;
 public class KontrollSoftwareTest {
 
 	@Test
-	public void test0(){
+	public void keinerAmEingangAnzahlBleibtGleich(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.SONDERRECHTE);
@@ -28,7 +28,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test(){
+	public void sonderrechteReinAnzahlUmEinsErhoeht(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.SONDERRECHTE);
@@ -43,7 +43,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test2(){
+	public void angestellterReinAnzahlUmEinsErhoeht(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.ANGESTELLT);
@@ -60,7 +60,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test3(){
+	public void normalePersonReinAnzahlUmEinsErhoeht(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.NORMAL);
@@ -77,7 +77,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test4(){
+	public void sonderrechteReinVollAnzahlUmEinsErhoeht(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.SONDERRECHTE);
@@ -95,7 +95,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test5(){
+	public void angestellterReinVollAnzahlGleich(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.ANGESTELLT);
@@ -112,7 +112,7 @@ public class KontrollSoftwareTest {
 
 
 	@Test
-	public void test6(){
+	public void normalReinVollAnzahlGleich(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.NORMAL);
@@ -128,7 +128,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test7(){
+	public void normalRausAnzahlUmEinsWeniger(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.NORMAL);
@@ -144,7 +144,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test8(){
+	public void normalRausVollAnzahlUmEinsWeniger(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.NORMAL);
@@ -160,7 +160,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test9(){
+	public void normallReinPositivAnzahlGleichAlarmUndBlockieren(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.NORMAL);
@@ -177,7 +177,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test10(){
+	public void angestellterReinPositivAnzahlGleichAlarmUndBlockieren(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.ANGESTELLT);
@@ -194,10 +194,10 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test11(){
+	public void normalReinPositivAnzahlGleichAlarmUndBlockieren(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
-		when(scannerMock.category()).thenReturn(PersonCategory.ANGESTELLT);
+		when(scannerMock.category()).thenReturn(PersonCategory.NORMAL);
 		when(scannerMock.readyToProcessPerson()).thenReturn(true);
 		when(scannerMock.personWantsToEnter()).thenReturn(true);
 		when(scannerMock.covidNegativeCertificate()).thenReturn(false);
@@ -212,7 +212,7 @@ public class KontrollSoftwareTest {
 
 
 	@Test
-	public void test12(){
+	public void angestellterReinVollFuerNormalAnzahlUmEinsErhoeht(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.ANGESTELLT);
@@ -229,7 +229,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test13(){
+	public void angestellterReinZertifikatUngueltigAnzahlGleichBlockieren(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(scannerMock.category()).thenReturn(PersonCategory.ANGESTELLT);
@@ -247,7 +247,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test14(){
+	public void netzwerkNachrichtEinerReinAnzahlErhoehtUmEins(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(netzwerkMock.readyToReceive()).thenReturn(true);
@@ -260,7 +260,7 @@ public class KontrollSoftwareTest {
 	}
 
 	@Test
-	public void test15(){
+	public void netzwerkNachrichtEinerRausAnzahlUmEinsWeniger(){
 		Scanner scannerMock= mock(Scanner.class);
 		Netzwerk netzwerkMock= mock(Netzwerk.class);
 		when(netzwerkMock.readyToReceive()).thenReturn(true);
